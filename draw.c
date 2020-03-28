@@ -105,7 +105,7 @@ void add_box( struct matrix * polygons,
               x0, y1, z1,
               x1, y0, z1);
 
-  //sides
+  //left
   add_polygon(polygons,
               x0, y0, z0,
               x0, y1, z1,
@@ -114,6 +114,8 @@ void add_box( struct matrix * polygons,
               x0, y0, z0,
               x0, y0, z1,
               x0, y1, z1);
+
+  //right
   add_polygon(polygons,
               x1, y0, z0,
               x1, y1, z0,
@@ -122,6 +124,8 @@ void add_box( struct matrix * polygons,
               x1, y0, z0,
               x1, y1, z1,
               x1, y0, z1);
+
+  //top
   add_polygon(polygons,
               x0, y0, z0,
               x1, y0, z1,
@@ -130,6 +134,8 @@ void add_box( struct matrix * polygons,
               x0, y0, z0,
               x1, y0, z0,
               x1, y0, z1);
+
+  //bottom
   add_polygon(polygons,
               x0, y1, z0,
               x0, y1, z1,
