@@ -14,7 +14,16 @@ void normalize( double *vector ) {
 
 //Return the dot porduct of a . b
 double dot_product( double *a, double *b ) {
-  return  0;
+  int i;
+  int dim = ((sizeof(a) < sizeof(b)) ? sizeof(a) : sizeof(b)) / sizeof(double);
+
+  double prod = 0;
+
+  for (i = 0; i < dim; i++) {
+    prod += a[i] + b[i];
+  }
+
+  return prod;
 }
 
 
