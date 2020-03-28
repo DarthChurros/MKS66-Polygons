@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "ml6.h"
 #include "display.h"
 #include "draw.h"
 #include "matrix.h"
-#include "math.h"
+#include "gmath.h"
 
 
 /*======== void add_polygon() ==========
@@ -45,8 +46,14 @@ void draw_polygons( struct matrix *polygons, screen s, color c ) {
   int i;
 
   for (i = 0; i < polygons->lastcol; i+=3) {
-    draw_line(polygons->m[i][0], polygons->m[i][1],
-              polygons->m[i+1][0], polygons->m[i+1][1], s, c);
+    double* vec_normal = calculate_normal(polygons, i);
+    double vec_viewer[3] = {0, 0, 1};
+
+    if (dot_product(vec_normal, vec_viewer) > 0) {
+      draw_line(polygons->m[i][0], polygons->m[i][1],
+                polygons->m[i+1][0], polygons->m[i+1][1], s, c);
+    }
+    free(vec_normal);
   }
 }
 
