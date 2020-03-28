@@ -42,6 +42,12 @@ void add_polygon( struct matrix *polygons,
   lines connecting each points to create bounding triangles
   ====================*/
 void draw_polygons( struct matrix *polygons, screen s, color c ) {
+  int i;
+
+  for (i = 0; i < polygons->lastcol; i+=3) {
+    draw_line(polygons->m[i][0], polygons->m[i][1],
+              polygons->m[i+1][0], polygons->m[i+1][1], s, c);
+  }
 }
 
 /*======== void add_box() ==========
