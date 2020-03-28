@@ -25,7 +25,7 @@ double dot_product( double *a, double *b ) {
   double prod = 0;
 
   for (i = 0; i < 3; i++) {
-    prod += a[i] + b[i];
+    prod += a[i] * b[i];
   }
 
   return prod;
