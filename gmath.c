@@ -10,6 +10,12 @@
 //vector functions
 //normalize vetor, should modify the parameter
 void normalize( double *vector ) {
+  double norm = sqrt(dot_product(vector, vector));
+
+  int i;
+  for (i = 0; i < 3; i++) {
+    vector[i] /= norm;
+  }
 }
 
 //Return the dot porduct of a . b
