@@ -40,8 +40,8 @@ double *calculate_normal(struct matrix *polygons, int i) {
   int j;
 
   for (j = 0; j < 3; j++) {
-    vec_a[j] = polygons->m[i+1][j] - polygons->m[i][j];
-    vec_b[j] = polygons->m[i+2][j] - polygons->m[i][j];
+    vec_a[j] = polygons->m[j][i+1] - polygons->m[j][i];
+    vec_b[j] = polygons->m[j][i+2] - polygons->m[j][i];
   }
 
   double* vec_normal = (double*)malloc(3 * sizeof(double));
